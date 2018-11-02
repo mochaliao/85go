@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+
+	<!--main-->
+	<main class="main-content">
+		<!--login-->
+		<section class="container-narrow-s" id="login-cnt">
+			<div>
+				<div class="content">
+					<div class="inner-title">
+						<h1>會員登入</h1>
+					</div>
+					<div class="content inner-table-wrap">
+						<div class="inner-table">
+							<div class="inner-table-img"></div>
+							<div class="inner-table-form">
+								<form>
+									<div class="input-area">
+										<h3>我已登記</h3>
+										<div>
+											<label>帳號</label>
+											<input type="text" placeholder="請輸入帳號">
+										</div>
+										<div>
+											<label>密碼</label>
+											<input type="text" placeholder="請輸入密碼">
+										</div>
+										<div class="captcha-area">
+											<label>驗證碼</label>
+											<div>
+												<div>
+													<input type="text" placeholder="AAAA">
+												</div>
+												<div class="captcha-cnt">
+													<img src="http://fakeimg.pl/110x40/fff/000/?text=1234">
+												</div>
+											</div>
+										</div>
+										<div class="txt-area">
+											<a href="#">忘記密碼?</a>
+											<a href="signin.html">我要註冊</a></div>
+									</div>
+									<div class="btn-area">
+										<input type="button" value="登入"
+											   onclick="location.href='member-manage.html'">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+</div>
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+    //語系切換
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+    });
+</script>
+</body>
+</html>

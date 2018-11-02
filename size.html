@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+	>
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+
+	<!--main-->
+	<main class="main-content">
+		<section class="container-narrow" id="policy-page">
+			<div class="content clearfix">
+				<!--sideMenu-->
+				<aside class="sideMenu-wrap">
+					<div class="sideMenu">
+						<ul>
+							<li><a href="contactUs.html">歐洲天堂</a></li>
+							<li><a href="QA.html">QA</a></li>
+							<li><a class="active">尺寸表</a></li>
+						</ul>
+					</div>
+				</aside>
+				<!--inner-cnt-->
+				<div class="inner-cnt-wrap">
+					<div class="contact-title size">尺寸參考表</div>
+					<div class="inner-cnt">
+						<div class="item-sort size-sort">
+							<form>
+								顯示尺寸參考表
+								<select>
+									<option value="0">選擇</option>
+									<option value="1">Woman’s Clothing</option>
+									<option value="2">Woman’s underwear and
+													  beachwear
+									</option>
+									<option value="3">Woman’s shoes</option>
+									<option value="4">Man’s Clothing</option>
+									<option value="5">Man’s underwear
+													  and beachwear
+									</option>
+									<option value="6">Man’s shoes</option>
+								</select>
+							</form>
+						</div>
+						<div class="size-table-wrap">
+							<div class="size-table-title">Woman’s Clothing</div>
+							<div class="size-table">
+								<ul class="size-table-row">
+									<li>international size</li>
+									<li>IT</li>
+									<li>uk</li>
+									<li>us</li>
+									<li>fr</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>xxs</li>
+									<li>0</li>
+									<li>4</li>
+									<li>0</li>
+									<li>32</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>xs</li>
+									<li>I</li>
+									<li>6</li>
+									<li>2</li>
+									<li>34</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>s</li>
+									<li>II</li>
+									<li>8</li>
+									<li>4</li>
+									<li>36</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>m</li>
+									<li>III</li>
+									<li>10</li>
+									<li>6</li>
+									<li>38</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>L</li>
+									<li>IV</li>
+									<li>12</li>
+									<li>8</li>
+									<li>10</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>xl</li>
+									<li>V</li>
+									<li>14</li>
+									<li>10</li>
+									<li>42</li>
+								</ul>
+								<ul class="size-table-row">
+									<li>xxl</li>
+									<li>VI</li>
+									<li>16</li>
+									<li>12</li>
+									<li>44</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+></script>
+<script src="js/mMenu.js"></script> <!--For naigantion-->
+
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+    //語系切換
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+    });
+</script>
+</body>
+</html>

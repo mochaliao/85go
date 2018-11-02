@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+
+	<!--main-->
+	<main class="main-content">
+		<section class="container-narrow" id="member-order-page">
+			<div class="content clearfix">
+				<!--sideMenu-->
+				<aside class="sideMenu-wrap">
+					<div class="sideMenu">
+						<ul>
+							<li><a href="member-manage.html">個人資料管理</a></li>
+							<li><a href="#" class="active">訂單查詢</a></li>
+							<li><a href="member-likelist.html">追蹤清單</a></li>
+						</ul>
+					</div>
+				</aside>
+				<!--inner-cnt-->
+				<div class="inner-cnt-wrap">
+					<div class="inner-title">
+						<h1>訂單查詢</h1>
+					</div>
+					<div class="inner-cnt">
+						<div>
+							<article class="member-list-wrap">
+								<ul class="member-list-cnt order-title">
+									<li>訂單編號<span>:</span></li>
+									<li>訂購時間<span>:</span></li>
+									<li>付款方式<span>:</span></li>
+									<li>訂單金額<span>:</span></li>
+									<li>處理狀態<span>:</span></li>
+								</ul>
+								<ul class="member-list-cnt">
+									<li>
+										<a href="member-order-list.html" class="order-num underline">123456789</a>
+									</li>
+									<li>2018/01/01</li>
+									<li>ATM轉帳</li>
+									<li>$123456</li>
+									<li>處理中</li>
+								</ul>
+							</article>
+							<article class="member-list-wrap">
+								<ul class="member-list-cnt order-title">
+									<li>訂單編號<span>:</span></li>
+									<li>訂購時間<span>:</span></li>
+									<li>付款方式<span>:</span></li>
+									<li>訂單金額<span>:</span></li>
+									<li>處理狀態<span>:</span></li>
+								</ul>
+								<ul class="member-list-cnt">
+									<li>
+										<a href="member-order-list.html" class="order-num underline">123456789</a>
+									</li>
+									<li>2018/01/01</li>
+									<li>ATM轉帳</li>
+									<li>$123456</li>
+									<li>處理中</li>
+								</ul>
+							</article>
+							<article class="member-list-wrap">
+								<ul class="member-list-cnt order-title">
+									<li>訂單編號<span>:</span></li>
+									<li>訂購時間<span>:</span></li>
+									<li>付款方式<span>:</span></li>
+									<li>訂單金額<span>:</span></li>
+									<li>處理狀態<span>:</span></li>
+								</ul>
+								<ul class="member-list-cnt">
+									<li>
+										<a href="member-order-list.html" class="order-num underline">123456789</a>
+									</li>
+									<li>2018/01/01</li>
+									<li>ATM轉帳</li>
+									<li>$123456</li>
+									<li>處理中</li>
+								</ul>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+</div>
+
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+    //語系切換
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+    });
+</script>
+</body>
+</html>

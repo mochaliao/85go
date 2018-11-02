@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+	>
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+
+	<!--main-->
+	<main class="main-content">
+		<section class="container-narrow" id="member-manage-page">
+			<div class="content clearfix">
+				<!--sideMenu-->
+				<aside class="sideMenu-wrap">
+					<div class="sideMenu">
+						<ul>
+							<li><a href="#" class="active">個人資料管理</a></li>
+							<li><a href="member-order.html">訂單查詢</a></li>
+							<li><a href="member-likelist.html">追蹤清單</a></li>
+						</ul>
+					</div>
+				</aside>
+				<!--inner-cnt-->
+				<div class="inner-cnt-wrap">
+					<div class="inner-title">
+						<h1>寄送資料填寫</h1>
+					</div>
+					<div class="inner-cnt">
+						<div class="inner-info-top clearfix">
+							<div>
+								<ul>
+									<li>會員資料管理</li>
+									<li>電子郵件：<span>123@test.com</span></li>
+									<li>姓名：<span>
+                    <input type="text" placeholder="123" class="input-t2">
+                    </span></li>
+									<li>MT4帳號：<span>12345679</span></li>
+									<li>信用額度：<span>0 點</span></li>
+								</ul>
+							</div>
+							<div>
+								<ul>
+									<li>購物資訊</li>
+									<li>手機
+										<span><input type="text" placeholder="123" class="input-t1"></span>
+									</li>
+									<li>地址
+										<span>
+											<p class="inner-select-wrap">
+											<select>
+												<option>台灣</option>
+												<option>香港</option>
+												<option>中國</option>
+											</select>
+											</p>
+										</span>
+										<br>
+										<input type="text" class="manage-add input-t1">
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="inner-info-bottom">
+							<div>
+								<ul>
+									<li>更換密碼</li>
+									<li>輸入密碼<span>
+                    <input type="text" placeholder="請輸入密碼" class="input-t3">
+                    </span></li>
+									<li>請輸入密碼<span>
+                    <input type="text" placeholder="請輸入密碼" class="input-t4">
+                    </span></li>
+									<li>確認新密碼<span>
+                    <input type="text" placeholder="請輸入密碼" class="input-t4">
+                    </span></li>
+								</ul>
+							</div>
+							<div class="btn-area">
+								<input type="button" value="修改資料"
+								onclick="location.href='member-manage.html'"
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+</div>
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+    //語系切換
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+    });
+</script>
+</body>
+</html>

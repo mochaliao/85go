@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+	>
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/member.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+
+	<!--main-->
+	<main class="main-content">
+		<section class="container-narrow" id="policy-page">
+			<div class="content clearfix">
+				<!--sideMenu-->
+				<aside class="sideMenu-wrap">
+					<div class="sideMenu">
+						<ul>
+							<li><a class="active">歐洲天堂</a></li>
+							<li><a href="QA.html">QA</a></li>
+							<li><a href="size.html">尺寸表</a></li>
+						</ul>
+					</div>
+				</aside>
+				<!--inner-cnt-->
+				<div class="inner-cnt-wrap">
+					<div class="contact-title contactUs">歐洲天堂品牌介紹</div>
+					<div class="inner-cnt">
+						<div class="inner-cnt-item-wrap">
+							<div class="inner-cnt-item">
+								我們是普惠世紀國際集團之歐洲天堂電子商務，普惠世紀國際控股集團成立於2008年，是一個跨足國際金融、高端旅遊、科技教育、投資移民、保險服務、活動企劃、娛樂事業、歐洲代購等多元化控股集團，集團不斷開拓海外市場，業務擴展至歐洲、非洲、美洲等全球各地。
+
+								<br><br>普惠世紀國際集團不斷在各大領域上與時並進，並不斷挖掘、培育頂尖專業人才，更與多數業內龍頭企業達成異業結盟、戰略合作，讓所有的顧客、會員能夠用最合理的價格，享受最頂尖的服務品質。
+							</div>
+							<div class="inner-cnt-item about-1"></div>
+						</div>
+						<div class="inner-cnt-item-wrap">
+							<div class="inner-cnt-item about-2"></div>
+							<div class="inner-cnt-item">
+								而歐洲天堂是個完整的購物平台，普惠世紀透過集團的國際資源，將歐洲天堂的物流、金流、服務等一切整合並對接，更提供普惠世紀之會員購物的信用額度，以提供客戶全方位優質服務，完整性的一條龍服務到最好，不必讓貴賓的商品經過複雜的流程，也不必被層層的剝奪造成之價格浮動，讓所有的貴賓們能夠用做合理的價格，滿足內心對精品的慾望！
+							</div>
+
+						</div>
+						<div class="inner-cnt-item-wrap">
+							<div class="inner-cnt-item">
+								集團的核心文化是以家庭為出發點，以人為依歸，完美家庭同時也可以成就事業上更大的成功！而歐洲天堂提供會員們最好的選擇，我們會不斷的追隨時尚，走在品牌尖端，滿足會員們最崇尚的慾望，歐洲天堂服務的不僅僅是購物網站，也是會員們滿足內心的歸屬之地，賓至如歸，我們的理念使命無微不至，無論貴賓想要的任何精品，歐洲天堂會竭盡所能的為貴賓尋找，享受最頂尖的服務品質！
+
+								<br><br>對人真心付出永遠不吃虧，懷抱熱情與理想的貢獻，歐洲天堂期待為各位貴賓創造更優質的生活，普及微小，惠至你我，世紀長存。
+							</div>
+							<div class="inner-cnt-item about-3"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
+></script>
+<script src="js/mMenu.js"></script> <!--For naigantion-->
+
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+    //語系切換
+    $(document).ready(function () {
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+    });
+</script>
+</body>
+</html>

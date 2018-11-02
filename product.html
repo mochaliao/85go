@@ -1,0 +1,534 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="icon" href="img/85go-logo-m.png">
+	<title>85go</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/master.css">
+	<link rel="stylesheet" href="css/font.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/product-items.css">
+	<!--<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>-->
+	<script src="https://use.fontawesome.com/8dbb4cc43e.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script>
+        //include html setting
+        $(function () {
+            var includes = $('[data-include]');
+            jQuery.each(includes, function () {
+                var file = 'include/' + $(this).data('include') + '.html';
+                $(this).load(file);
+            });
+        });
+        //全部load完，才load mMenu.js
+        $(window).bind("load", function () {
+            $.getScript('js/mMenu.js');
+        });
+	</script>
+    <script>
+        $( function() {
+            $( ".slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [ 75, 300 ],
+                slide: function( event, ui ) {
+                    $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
+                " - $" + $( ".slider-range" ).slider( "values", 1 ) );
+        } );
+    </script>
+</head>
+<body>
+<div class="wrapper">
+	<!--header-->
+	<div data-include="header"></div>
+	
+	<!--main-->
+	<main class="main-content">
+		<section class="container-narrow clearfix" id="product-items">
+			<!--filter-->
+			<aside class="filter-wrap" >
+				<div class="filter-box">
+					<ul>
+						<li class="filter-title"><a href="#"><span>prada</span></a></li>
+						<li class="filter-subtitle"><a href="#"><span>Show All</span></a></li>
+						<li><a href="#"><span>Clothing</span></a></li>
+						<li><a href="#"><span>Shoes</span></a></li>
+						<li><a href="#"><span>Bags</span></a></li>
+						<li><a href="#"><span>Accessories</span></a></li>
+						<li><a href="#"><span>Exclusives</span></a></li>
+					</ul>
+				</div>
+				<div class="filter-box">
+					<div class="filter-title">排序方式</div>
+					<a class="reset-btn">全部清除</a></div>
+				
+				<!--品牌-->
+				<div class="filter-box filter-brand">
+					<div class="filter-title has-arrow"><a href="#">品牌</a>
+						<div class="filter-submenu">
+							<form>
+								<div>
+									<input type="checkbox"/>
+									<label><span>PRADA</span></label>
+								</div>
+								<div>
+									<input type="checkbox"/>
+									<label><span>moschino</span></label>
+								</div>
+								<div>
+									<input type="checkbox"/>
+									<label><span>burberry</span></label>
+								</div>
+								<div>
+									<input type="checkbox"/>
+									<label><span>gucci</span></label>
+								</div>
+								<div>
+									<input type="checkbox"/>
+									<label><span>miu miu</span></label>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+				<!--尺寸-->
+				<div class="filter-box filter-size">
+					<div class="filter-title has-arrow"><a href="#">尺寸</a>
+						<div class="filter-submenu">
+							<form>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">one size</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">XXS</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">xs</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">S</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">m</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">l</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">xl</span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt">XXl</span> </label>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+				<!--價錢-->
+				<div class="filter-box filter-price">
+					<div class="filter-title has-arrow"><a href="#">價錢</a>
+						<div class="filter-submenu">
+                            <p>
+                                <input type="text" class="amount" readonly style="border:0;font-weight:bold;">
+                            </p>
+                            <div class="slider-range"></div>
+                        </div>
+					</div>
+				</div>
+				
+				<!--顏色-->
+				<div class="filter-box filter-color">
+					<div class="filter-title has-arrow"><a href="#">顏色</a>
+						<div class="filter-submenu">
+							<form>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt check-white"></span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt check-red"></span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt check-yellow"></span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt check-green"></span> </label>
+								</div>
+								<div>
+									<label class="checkbox-wrap">
+										<input type="checkbox">
+										<span class="checkbox-txt check-blue"></span> </label>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</aside>
+			
+			<div class="items-wrap">
+				<div class="items-top">
+					<div class="item-classify"><a href="index.html"><span>首頁</span></a> / <a href="#"><span>DESIGNER</span></a> /
+						<a href="#"><span>PRADA</span></a></div>
+					<div class="sort-wrap">
+						<div class="item-sort">
+							<form>
+								<select>
+									<option value="0">排列方式</option>
+									<option value="1">價錢：由低到高</option>
+									<option value="2">價錢：由高到低</option>
+									<option value="3">上架時間：新到舊</option>
+									<option value="4">上架時間：舊到新</option>
+								</select>
+							</form>
+						</div>
+						<div class="item-filter"><a href="#" id="filter-toggle">filter</a></div>
+					</div>
+				</div>
+				
+				<!--items-->
+				<div class="items-cnt clearfix">
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal"><img src="img/items/1_747487-013613730304_1.jpg">
+									<img class="hidden" src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款大衣</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+									<img class="hidden" src="img/items/1_712439-PRADA-Black-mikado-dress.jpg"></div>
+								<div>
+									<h6><span>2017秋冬新款氣質黑色大衣</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_712520-PRADA-Black-mikado-dress.jpg"><img class="hidden" src="img/items/1_712439-PRADA-Black-mikado-dress.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款氣質黑色連身裙</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_747527-BLEHMAN-Black-suede-pumps.jpg">
+									<img class="hidden" src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款高跟鞋</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal"><img src="img/items/1_747487-013613730304_1.jpg">
+									<img class="hidden" src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款大衣</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+									<img class="hidden" src="img/items/1_712439-PRADA-Black-mikado-dress.jpg"></div>
+								<div>
+									<h6><span>2017秋冬新款氣質黑色大衣</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_712520-PRADA-Black-mikado-dress.jpg"><img class="hidden" src="img/items/1_712439-PRADA-Black-mikado-dress.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款氣質黑色連身裙</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+					<article class="items-box">
+						<div class="items-box-side"><a class="items-cart"></a> <a class="items-like"></a></div>
+						<a href="item.html">
+							<div class="items-box-main">
+								<div class="items-img reveal">
+									<img src="img/items/1_747527-BLEHMAN-Black-suede-pumps.jpg">
+									<img class="hidden" src="img/items/1_712417-PRADA-Black-virgin-wool-blend-coat.jpg">
+								</div>
+								<div>
+									<h6><span>2017秋冬新款高跟鞋</span></h6>
+									<h5><span>TWD $200,500</span></h5>
+								</div>
+							</div>
+						</a></article>
+				</div>
+				
+				<!--pagination-->
+				<div class="items-bottom">
+					<div class="items-pagination">
+						<a href="#" class="pagination-pre"><span>上一頁</span></a><a href="#"><span>1</span></a><a href="#"><span>2</span></a><a href="#"><span>3</span></a><a href="#"><span>4</span></a><a href="#" class="pagination-next"><span>下一頁</span></a>
+					</div>
+					<div class="items-sum">
+						<div>共計<span>90</span>個商品</div>
+						<div>頁數<span>1</span>/<span>4</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!--footer-->
+		<div data-include="footer"></div>
+	</main>
+	
+	<!--mobile nav-->
+	<div data-include="navMobile"></div>
+	
+	<!--mobile filter-->
+	<div class="mobile-filter-wrap">
+		<div class="" id="mobile-filter">
+			<div class="filter-box">
+				<ul>
+					<li class="filter-title"><a href="#"><span>prada</span></a></li>
+					<li class="filter-subtitle"><a href="#"><span>Show All</span></a></li>
+					<li><a href="#"><span>Clothing</span></a></li>
+					<li><a href="#"><span>Shoes</span></a></li>
+					<li><a href="#"><span>Bags</span></a></li>
+					<li><a href="#"><span>Accessories</span></a></li>
+					<li><a href="#"><span>Exclusives</span></a></li>
+				</ul>
+			</div>
+			<div class="filter-box">
+				<div class="filter-title">排序方式</div>
+				<a class="reset-btn">全部清除</a></div>
+
+			<!--品牌-->
+			<div class="filter-box filter-brand">
+				<div class="filter-title has-arrow"><a href="#">品牌</a>
+					<div class="filter-submenu">
+						<form>
+							<div>
+								<input type="checkbox"/>
+								<label><span>PRADA</span></label>
+							</div>
+							<div>
+								<input type="checkbox"/>
+								<label><span>moschino</span></label>
+							</div>
+							<div>
+								<input type="checkbox"/>
+								<label><span>burberry</span></label>
+							</div>
+							<div>
+								<input type="checkbox"/>
+								<label><span>gucci</span></label>
+							</div>
+							<div>
+								<input type="checkbox"/>
+								<label><span>miu miu</span></label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!--尺寸-->
+			<div class="filter-box filter-size">
+				<div class="filter-title has-arrow"><a href="#">尺寸</a>
+					<div class="filter-submenu">
+						<form>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">one size</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">XXS</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">xs</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">S</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">m</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">l</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">xl</span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt">XXl</span> </label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!--價錢-->
+            <div class="filter-box filter-price">
+                <div class="filter-title has-arrow"><a href="#">價錢</a>
+                    <div class="filter-submenu">
+                        <p>
+                            <input type="text" class="amount" readonly style="border:0;font-weight:bold;">
+                        </p>
+                        <div class="slider-range"></div>
+                    </div>
+                </div>
+            </div>
+
+			<!--顏色-->
+			<div class="filter-box filter-color">
+				<div class="filter-title has-arrow"><a href="#">顏色</a>
+					<div class="filter-submenu">
+						<form>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt check-white"></span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt check-red"></span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt check-yellow"></span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt check-green"></span> </label>
+							</div>
+							<div>
+								<label class="checkbox-wrap">
+									<input type="checkbox">
+									<span class="checkbox-txt check-blue"></span> </label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+    //for header
+    $(function () {
+        $(window).scroll(function () {
+
+            //固定header menu
+            if ($(this).scrollTop() > 129) {
+                $('header').addClass('fixed');
+            } else {
+                $('header').removeClass('fixed');
+            }
+        });
+    });
+
+
+    $(document).ready(function () {
+        //語系切換
+        $('.header-langEx a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+        //頁面切換
+        $('.items-pagination a').click(function () {
+            $('a.active').removeClass('active');
+            $(this).closest('a').addClass('active');
+        });
+        //商品收藏切換
+        $('.items-like').click(function () {
+            $(this).toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>
